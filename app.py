@@ -110,6 +110,16 @@ with st.sidebar.expander("💻 Compartidas de Informática", expanded=False):
                 seleccionadas.append(m)
 
     #las demas 
+    # 6. Materias de Programación Avanzada
+    with st.sidebar.expander("💻 Materias Programación", expanded=False):
+        programacion_mats = [
+            "Taller de marcado", "Estructuras de Datos", "Programación con Objetos II",
+            "Programación Concurrente", "Programación Funcional", 
+            "Estrategias de Persistencia", "Sist Inf Geografica (Electiva)"
+        ]
+        for m in programacion_mats:
+            if st.checkbox(m, key=f"prog_{m}"):
+                seleccionadas.append(m)
 
 st.sidebar.divider()
 st.sidebar.info("El cálculo aplica las equivalencias automáticas entre planes.")

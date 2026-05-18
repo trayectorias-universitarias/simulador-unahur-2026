@@ -47,8 +47,8 @@ def aplicar_reglas_compartidas(nombre_materia, carrera, plan, mats, horas, aca):
             h_res -= 128
         elif ((plan == "2025" and "Tecnicatura en Programación" in carrera) or 
               (plan == "2022" and "Tecnicatura en Programación" in carrera) or 
-              (plan == "2025" and "Licenciatura en Informática" in carrera) 
-              or (plan == "2022" and "Tecnicatura en Videojuegos" in carrera)):
+              (plan == "2025" and "Licenciatura en Informática" in carrera) or 
+              (plan == "2022" and "Tecnicatura en Videojuegos" in carrera)):
             m_res -= 1
             h_res -= 96
         else:
@@ -153,6 +153,8 @@ def aplicar_reglas_compartidas(nombre_materia, carrera, plan, mats, horas, aca):
         # Casos que descuentan 64hs (Planes nuevos o IA 2023)
         elif (
             (plan == "2025" and "Licenciatura en Informática" in carrera) or
+            (plan == "2022" and "Licenciatura en Informática" in carrera) or
+            (plan == "2022" and "Tecnicatura en Programación" in carrera) or
             (plan == "2025" and "Tecnicatura en Redes" in carrera) or
             (plan == "2025" and "Licenciatura en Ciberseguridad" in carrera) or
             (plan == "2023" and "Inteligencia Artificial" in carrera)
@@ -449,10 +451,79 @@ def aplicar_reglas_compartidas(nombre_materia, carrera, plan, mats, horas, aca):
             m_res -= 1
             h_res -= 80
 
-    # Nota: Taller de programación I no tiene efecto en ningún plan según tu lista.
+    # Nota: Taller de programación I no tiene efecto.
     # se reciben con probabilidad y estadistica que es de licenciatura en informatica
+    # --- MATERIAS DE PROGRAMACIÓN ---
+
+    # 31. Taller de marcado
+    elif nombre_materia == "Taller de marcado":
+        # Descuenta 64hs en Lic. Informática 2025 y Tec. Programación (2022 y 2025)
+        if (plan == "2025" and "Licenciatura en Informática" in carrera) or \
+           ("Tecnicatura en Programación" in carrera):
+            m_res -= 1
+            h_res -= 64
+
+    # 32. Estructuras de Datos
+    elif nombre_materia == "Estructuras de Datos":
+        # Planes viejos (2018 / 2022) descuentan 128hs
+        if (plan == "2018" and "Licenciatura en Informática" in carrera) or \
+           (plan == "2022" and "Tecnicatura en Programación" in carrera):
+            m_res -= 1
+            h_res -= 128
+        # Planes nuevos (2025) descuentan 96hs
+        elif plan == "2025" and ("Licenciatura en Informática" in carrera or "Tecnicatura en Programación" in carrera):
+            m_res -= 1
+            h_res -= 96
+
+    # 33. Programación con Objetos II
+    elif nombre_materia == "Programación con Objetos II":
+        # Descuenta 96hs en todos los planes de Lic. Informática y Tec. Programación
+        if ("Licenciatura en Informática" in carrera) or ("Tecnicatura en Programación" in carrera):
+            m_res -= 1
+            h_res -= 96
+
+    # 34. Programación Concurrente
+    elif nombre_materia == "Programación Concurrente":
+        # Descuenta 64hs en Lic. Informática (ambos), Tec. Prog 2022 y Ciberseguridad 2025
+        if ("Licenciatura en Informática" in carrera) or \
+           (plan == "2022" and "Tecnicatura en Programación" in carrera) or \
+           (plan == "2025" and "Licenciatura en Ciberseguridad" in carrera):
+            m_res -= 1
+            h_res -= 64
+        # Tecnicatura en Programación 2025 queda afuera (no tiene efecto)
+
+    # 35. Programación Funcional
+    elif nombre_materia == "Programación Funcional":
+        # Caso plan viejo: Lic. Informática 2018 (descuenta 64hs reloj)
+        if plan == "2018" and "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 64
+        # Caso planes nuevos: Lic. Informática 2025 y Tec. Programación 2025 (descuenta 5 créditos ACA)
+        elif plan == "2025" and ("Licenciatura en Informática" in carrera or "Tecnicatura en Programación" in carrera):
+            a_res -= 5
+        # Tecnicatura en Programación 2022 no tiene efecto
+
+    # 36. Estrategias de Persistencia
+    elif nombre_materia == "Estrategias de Persistencia":
+        # Planes viejos (2018 / 2022) descuentan 96hs
+        if (plan == "2018" and "Licenciatura en Informática" in carrera) or \
+           (plan == "2022" and "Tecnicatura en Programación" in carrera):
+            m_res -= 1
+            h_res -= 96
+        # Planes nuevos (2025) descuentan 64hs
+        elif plan == "2025" and ("Licenciatura en Informática" in carrera or "Tecnicatura en Programación" in carrera):
+            m_res -= 1
+            h_res -= 64
+
+    # 37. Sist Inf Geografica (Electiva)
+    elif nombre_materia == "Sist Inf Geografica (Electiva)":
+        # Solo afecta a los planes nuevos (2025) descontando 5 créditos ACA
+        if plan == "2025" and ("Licenciatura en Informática" in carrera or "Tecnicatura en Programación" in carrera):
+            a_res -= 5
 
     return m_res, h_res, a_res
+
+    
 
 def calcular_todos_los_progresos(materias_aprobadas):
     df_maestro = pd.read_csv('datos_maestros.csv')

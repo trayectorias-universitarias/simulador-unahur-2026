@@ -155,7 +155,7 @@ Redes de Computadoras
 
 Licenciatura en Informatica 2018 descuenta en cantidad total_materias y total_horas (96)
 Licenciatura en Informatica 2025 descuenta en cantidad total_materias y total_horas (64)
-Tecnicatura en Programación 2022 no tiene efecto
+Tecnicatura en Programación 2022 descuenta en cantidad total_materias y total_horas (64)
 Tecnicatura en Programación 2025 no tiene efecto
 
 
