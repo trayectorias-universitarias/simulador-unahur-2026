@@ -1,0 +1,15 @@
+[theme]
+# El color de los checkboxes, botones y barras de progreso
+primaryColor = "#094e2c"
+
+# Color de fondo de la zona principal
+backgroundColor = "#1E1E2E"
+
+# Color de fondo de la barra lateral (si usas)
+secondaryBackgroundColor = "#262730"
+
+# Color del texto
+textColor = "#FFFFFF"
+
+# Fuente (opcional)
+font = "sans serif"
