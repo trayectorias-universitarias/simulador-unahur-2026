@@ -518,9 +518,10 @@ def aplicar_reglas_compartidas(nombre_materia, carrera, plan, mats, horas, aca):
     # 37. Sist Inf Geografica (Electiva)
     elif nombre_materia == "Sist Inf Geografica (Electiva)":
         # Solo afecta a los planes nuevos (2025) descontando 5 créditos ACA
-        if plan == "2025" and ("Licenciatura en Informática" in carrera or "Tecnicatura en Programación" in carrera):
-            a_res -= 5
-
+        if plan == "2025" and ("Licenciatura en Informática" in carrera):
+            a_res -= 4
+        elif plan == "2025" and ("Tecnicatura en Programación" in carrera):
+            a_res -= 3
     return m_res, h_res, a_res
 
     
