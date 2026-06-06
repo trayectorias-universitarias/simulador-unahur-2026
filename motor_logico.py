@@ -498,10 +498,18 @@ def aplicar_reglas_compartidas(nombre_materia, carrera, plan, mats, horas, aca):
         if plan == "2018" and "Licenciatura en Informática" in carrera:
             m_res -= 1
             h_res -= 64
+            
         # Caso planes nuevos: Lic. Informática 2025 y Tec. Programación 2025 (descuenta 5 créditos ACA)
         elif plan == "2025" and ("Licenciatura en Informática" in carrera or "Tecnicatura en Programación" in carrera):
             a_res -= 5
-        # Tecnicatura en Programación 2022 no tiene efecto
+            
+        # Caso Tecnicatura en Programación 2022 con condicional cruzada
+       # elif plan == "2022" and "Tecnicatura en Programación" in carrera:
+            # "SINO tiene aprobada Programación Concurrente, descuenta..."
+          #  if "Programación Concurrente" not in materias_aprobadas:
+           #     m_res -= 1
+            #    h_res -= 64
+            # Si está en la lista, entra en el else implícito (no tiene efecto)
 
     # 36. Estrategias de Persistencia
     elif nombre_materia == "Estrategias de Persistencia":
