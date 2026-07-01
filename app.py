@@ -16,7 +16,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.title("📊 Simulador de Transición UNaHur")
+st.title("📊 Simulador de Transición UNaHur 2026")
 st.markdown("Visualizá el impacto de tus materias aprobadas en los nuevos planes de estudio.")
 
 # --- SECCIÓN DE SELECCIÓN EN BARRA LATERAL ---
