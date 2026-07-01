@@ -27,3 +27,5 @@ build/
 # --- ARCHIVOS TEMPORALES ---
 *.log
 .DS_Store
+
+# --- RECUPERACION ---
