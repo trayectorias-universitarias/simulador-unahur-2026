@@ -113,13 +113,51 @@ with st.sidebar.expander("💻 Compartidas de Informática", expanded=False):
     # 6. Materias de Programación Avanzada
     with st.sidebar.expander("💻 Materias Programación", expanded=False):
         programacion_mats = [
-            "Taller de marcado", "Estructuras de Datos", "Programación con Objetos II",
-            "Programación Concurrente", "Programación Funcional", 
-            "Estrategias de Persistencia", "Sist Inf Geografica (Electiva)"
+            "Taller de marcado", 
+            "Estructuras de Datos", 
+            "Programación con Objetos II",
+            "Programación Concurrente", 
+            "Programación Funcional", 
+            "Estrategias de Persistencia", 
+            "Sist Inf Geografica (Electiva)"
         ]
         for m in programacion_mats:
             if st.checkbox(m, key=f"prog_{m}"):
                 seleccionadas.append(m)
+
+    # 7. Materias Licenciatura en Informática
+with st.sidebar.expander("🎓 Licenciatura en Informática", expanded=False):
+    lic_info_mats = [
+        "Algoritmos",
+        "Laboratorio de Sistemas Op. y Redes",
+        "Lógica y Programación",
+        "Programación con Objetos III",
+        "Seguridad de la Información",
+        "Análisis Matemático",
+        "Matemática II",
+        "Matemática III",
+        "Probabilidad y Estadística",
+        "Ingeniería de Requerimientos",
+        "Desarrollo de Aplicaciones",
+        "Gestión de Proyectos de Des. de Software",
+        "Práctica Profesional Supervisada (PPS)",
+        "Teorías de la Computación",
+        "Arquitectura de SW I",
+        "Sistemas Distribuidos y Tiempos Real",
+        "Lenguajes Formales y Autómatas",
+        "Características de Lenguajes de Comp.",
+        "Arquitectura de SW II",
+        "Arquitectura de Computadoras",
+        "Parseo y Generación de Código",
+        "Ejercicio Profesional",
+        "Tesina de Licenciatura",
+        "Materia Optativa 1 (no Ap. Automático ni Redes Neur.)",
+        "Materia Optativa 2 (no Ap. Automático ni Redes Neur.)",
+        "Sistemas y Organizaciones"
+    ]
+    for m in lic_info_mats:
+        if st.checkbox(m, key=f"lic_info_{m}"):
+            seleccionadas.append(m)
 
 st.sidebar.divider()
 st.sidebar.info("El cálculo aplica las equivalencias automáticas entre planes.")

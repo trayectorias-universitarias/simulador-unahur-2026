@@ -245,3 +245,12 @@ Licenciatura en VideoJuegos 2025 descuenta en cantidad total_materias y total_ho
 
 Tecnicatura en Inteligencia Artificial 2023 descuenta en cantidad total_materias y total_horas (48)
 Tecnicatura en Inteligencia Artificial 2025 descuenta en cantidad total_materias y total_horas (64)
+
+
+
+Sistemas y Organizaciones
+    elif nombre_materia == "Sistemas y Organizaciones":
+        if plan == "2025" and "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 32
+----------------------------------------------------------

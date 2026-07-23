@@ -530,7 +530,194 @@ def aplicar_reglas_compartidas(nombre_materia, carrera, plan, mats, horas, aca):
             a_res -= 4
         elif plan == "2025" and ("Tecnicatura en Programación" in carrera):
             a_res -= 3
+
+    # --- MATERIAS DE LA LICENCIATURA EN INFORMÁTICA ---
+
+    # 38. Algoritmos
+    elif nombre_materia == "Algoritmos":
+        if plan == "2018" and "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 96
+        elif plan == "2025" and "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 64
+
+    # 39. Laboratorio de Sistemas Op. y Redes
+    elif nombre_materia == "Laboratorio de Sistemas Op. y Redes":
+        if "Licenciatura en Informática" in carrera or "Licenciatura en Ciberseguridad" in carrera:
+            m_res -= 1
+            h_res -= 64
+        elif plan == "2022" and "Tecnicatura en Redes" in carrera:
+            m_res -= 1
+            h_res -= 96
+
+    # 40. Lógica y Programación
+    elif nombre_materia == "Lógica y Programación":
+        if "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 96
+
+    # 41. Programación con Objetos III
+    elif nombre_materia == "Programación con Objetos III":
+        if plan == "2018" and "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 96
+        elif plan == "2025" and ("Licenciatura en Informática" in carrera or "Tecnicatura en Programación" in carrera):
+            a_res -= 5
+
+    # 42. Seguridad de la Información
+    elif nombre_materia == "Seguridad de la Información":
+        if "Licenciatura en Informática" in carrera or "Licenciatura en Ciberseguridad" in carrera:
+            m_res -= 1
+            h_res -= 64
+        elif "Tecnicatura en Redes" in carrera:
+            m_res -= 1
+            h_res -= 96 if plan == "2022" else 64
+
+    # 43. Análisis Matemático
+    elif nombre_materia == "Análisis Matemático":
+        if "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 96 if plan == "2018" else 64
+
+    # 44. Matemática II
+    elif nombre_materia == "Matemática II":
+        if "Licenciatura en Informática" in carrera or "Inteligencia Artificial" in carrera:
+            m_res -= 1
+            h_res -= 64
+
+    # 45. Matemática III
+    elif nombre_materia == "Matemática III":
+        if "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 64
+
+    # 46. Probabilidad y Estadística
+    elif nombre_materia == "Probabilidad y Estadística":
+        if "Licenciatura en Informática" in carrera or "Inteligencia Artificial" in carrera:
+            m_res -= 1
+            h_res -= 96
+
+    # 47. Ingeniería de Requerimientos
+    elif nombre_materia == "Ingeniería de Requerimientos":
+        if "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 96
+
+    # 48. Desarrollo de Aplicaciones
+    elif nombre_materia == "Desarrollo de Aplicaciones":
+        if "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 96 if plan == "2018" else 64
+
+    # 49. Gestión de Proyectos de Des. de Software
+    elif nombre_materia == "Gestión de Proyectos de Des. de Software":
+        if "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 64
+
+    # 50. Práctica Profesional Supervisada (PPS)
+    elif nombre_materia == "Práctica Profesional Supervisada (PPS)":
+        if ("Licenciatura en Informática" in carrera) or \
+           (plan == "2025" and ("Licenciatura en Ciberseguridad" in carrera or "Licenciatura en VideoJuegos" in carrera)):
+            m_res -= 1
+            h_res -= 64
+
+    # 51. Teorías de la Computación
+    elif nombre_materia == "Teorías de la Computación":
+        if "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 64
+
+    # 52. Arquitectura de SW I
+    elif nombre_materia == "Arquitectura de SW I":
+        if "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 64
+
+    # 53. Sistemas Distribuidos y Tiempos Real
+    elif nombre_materia == "Sistemas Distribuidos y Tiempos Real":
+        if "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 96 if plan == "2018" else 64
+
+    # 54. Lenguajes Formales y Autómatas
+    elif nombre_materia == "Lenguajes Formales y Autómatas":
+        if plan == "2018" and "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 64
+        elif plan == "2025" and "Licenciatura en Informática" in carrera:
+            a_res -= 5
+        elif plan == "2025" and "Tecnicatura en Programación" in carrera:
+            a_res -= 3
+
+    # 55. Características de Lenguajes de Comp.
+    elif nombre_materia == "Características de Lenguajes de Comp.":
+        if plan == "2018" and "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 64
+        elif plan == "2025" and "Licenciatura en Informática" in carrera:
+            # Solo suma 5 créditos si NO tiene aprobada "Parseo y Generación de Código"
+            a_res += 5
+
+    # 56. Arquitectura de SW II
+    elif nombre_materia == "Arquitectura de SW II":
+        if "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 64
+
+    # 57. Arquitectura de Computadoras
+    elif nombre_materia == "Arquitectura de Computadoras":
+        if "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 64
+
+   # 58. Parseo y Generación de Código
+    elif nombre_materia == "Parseo y Generación de Código":
+        if "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 64
+            # Si está en el plan 2025 y además tiene aprobada "Características de Lenguajes de Comp.", resta 5 créditos ACA
+            if plan == "2025" and "Características de Lenguajes de Comp." in "materias_aprobadas":
+                a_res -= 5
+
+    # 59. Ejercicio Profesional
+    elif nombre_materia == "Ejercicio Profesional":
+        if "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 48 if plan == "2018" else 64
+
+    # 60. Tesina de Licenciatura
+    elif nombre_materia == "Tesina de Licenciatura":
+        if "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 160 if plan == "2018" else 96
+
+    # 61. Materia Optativa 1 (no Ap. Automático ni Redes Neur.)
+    elif nombre_materia == "Materia Optativa 1 (no Ap. Automático ni Redes Neur.)":
+        if plan == "2018" and "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 64
+        elif plan == "2025" and "Licenciatura en Informática" in carrera:
+            a_res -= 4
+
+    # 62. Materia Optativa 2 (no Ap. Automático ni Redes Neur.)
+    elif nombre_materia == "Materia Optativa 2 (no Ap. Automático ni Redes Neur.)":
+        if plan == "2025" and "Licenciatura en Informática" in carrera:
+            a_res -= 4
+
+    # 63. Sistemas y Organizaciones
+    elif nombre_materia == "Sistemas y Organizaciones":
+        if plan == "2025" and "Licenciatura en Informática" in carrera:
+            m_res -= 1
+            h_res -= 32
+
+    
+
+    #el eje que absorve los datos 
     return m_res, h_res, a_res
+
+    
 
     
 
